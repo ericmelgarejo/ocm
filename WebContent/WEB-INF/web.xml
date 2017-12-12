@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>OCM</display-name>
+  <welcome-file-list>
+    <welcome-file>inicio.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <security-constraint>
+    <display-name>acceso comercial</display-name>
+    <web-resource-collection>
+      <web-resource-name>acceso comer</web-resource-name>
+      <url-pattern>/index.jsp</url-pattern>
+      <url-pattern>/indexInteresado.jsp</url-pattern>
+      <url-pattern>/log_in.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>COMERCIAL</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <security-constraint>
+    <display-name>Acceso SuperAdmin</display-name>
+    <web-resource-collection>
+      <web-resource-name>Acceso SuperAdmin</web-resource-name>
+      <url-pattern>/indexSuperAdmin.jsp</url-pattern>
+      <url-pattern>/log_in.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>SUPERADMIN</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>User Authentication Policy</web-resource-name>
+      <url-pattern>/indexInteresado.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>*</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <security-role>
+    <role-name>COMERCIAL</role-name>
+  </security-role>
+  <security-role>
+    <role-name>SUPERADMIN</role-name>
+  </security-role>
+  <security-role>
+    <role-name>INSTRUCTOR</role-name>
+  </security-role>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/login.jsp</form-login-page>
+      <form-error-page>/error.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+  
+  <servlet>
+  	<servlet-name>CursosServlet</servlet-name>
+  	<servlet-class>servlet.CursosServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>CursosServlet</servlet-name>
+  	<url-pattern>/cursos</url-pattern>
+  </servlet-mapping>
+    
+  <servlet-mapping>
+  	<servlet-name>CursosServlet</servlet-name>
+  	<url-pattern>/curso</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>ProgramasServlet</servlet-name>
+  	<servlet-class>servlet.ProgramasServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ProgramasServlet</servlet-name>
+  	<url-pattern>/programas</url-pattern>
+  </servlet-mapping>
+    
+  <servlet-mapping>
+  	<servlet-name>ProgramasServlet</servlet-name>
+  	<url-pattern>/programa</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>DestinatarioServlet</servlet-name>
+  	<servlet-class>servlet.DestinatarioServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DestinatarioServlet</servlet-name>
+  	<url-pattern>/listar-destinatarios.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>InstructorServlet</servlet-name>
+  	<servlet-class>servlet.InstructorServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>InstructorServlet</servlet-name>
+  	<url-pattern>/listar-instructores.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>AdminLugaresServlet</servlet-name>
+  	<servlet-class>servlet.AdminLugaresServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>AdminLugaresServlet</servlet-name>
+  	<url-pattern>/listar-lugares.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>AdminCiudadesServlet</servlet-name>
+  	<servlet-class>servlet.AdminCiudadesServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>AdminCiudadesServlet</servlet-name>
+  	<url-pattern>/listar-ciudades.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminPaisesServlet</servlet-name>
+  	<servlet-class>servlet.AdminPaisesServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>AdminPaisesServlet</servlet-name>
+  	<url-pattern>/listar-paises.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet</servlet-name>
+    <servlet-class>servlet.Servlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>SelectCursosServlet</servlet-name>
+    <servlet-class>servlet.SelectCursosServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>CiudadServlet</servlet-name>
+    <servlet-class>servlet.CiudadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LugarServlet</servlet-name>
+    <servlet-class>servlet.LugarServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>InteresadoServlet</servlet-name>
+    <servlet-class>servlet.InteresadoServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>servlet.AdminServlet</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+    <servlet-name>SelectCursosServlet</servlet-name>
+    <url-pattern>/cursos.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet-mapping>
+    <servlet-name>CiudadServlet</servlet-name>
+    <url-pattern>/ciudades.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LugarServlet</servlet-name>
+    <url-pattern>/lugares.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Servlet</servlet-name>
+    <url-pattern>/crear-evento.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Servlet</servlet-name>
+    <url-pattern>/listar-evento.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Servlet</servlet-name>
+    <url-pattern>/modificar-evento.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Servlet</servlet-name>
+    <url-pattern>/listar-inscripciones.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Servlet</servlet-name>
+    <url-pattern>/cerrar-secion.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InteresadoServlet</servlet-name>
+    <url-pattern>/lista-eventos-interesado.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InteresadoServlet</servlet-name>
+    <url-pattern>/detalle-evento-interesado.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InteresadoServlet</servlet-name>
+    <url-pattern>/detalle-evento-interesado2.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InteresadoServlet</servlet-name>
+    <url-pattern>/preinscripcion-interesado.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InteresadoServlet</servlet-name>
+    <url-pattern>/lista-inscripciones.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InteresadoServlet</servlet-name>
+    <url-pattern>/pagar-evento.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>AdminServlet</servlet-name>
+  	<url-pattern>/paises</url-pattern>
+  </servlet-mapping>
+  
+  <resource-ref>
+    <description>Oracle Data Source</description>
+    <res-ref-name>jdbc/conexionOCM</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+</web-app>

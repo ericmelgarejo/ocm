@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<context>
+
+	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+	
+	<Resource name="jdbc/conexionOCM" auth="Container"
+			type="javax.sql.DataSource" driverClassName="oracle.jdbc.driver.OracleDriver"
+			url="jdbc:oracle:thin:@localhost:1521:xe"
+			username="Administrador" password="Admin" maxActive="20" maxIdle="10"
+			maxWite="-1"/>
+
+</context>
